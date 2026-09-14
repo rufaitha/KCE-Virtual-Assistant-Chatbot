@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KCE Chatbot | Kings College of Engineering</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <img src="{{ url_for('static', filename='kce-logo.png') }}" alt="KCE Logo">
+        <div>
+          <h1>Kings College of Engineering</h1>
+          <span>Autonomous • KCE Virtual Assistant</span>
+        </div>
+      </div>
+      <nav>
+        <a class="active" href="#chat">Chat</a>
+        <a href="#quick">Quick Questions</a>
+        <a href="https://www.kingsengg.edu.in/" target="_blank">Official Website ↗</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <div class="profile">
+          <img src="{{ url_for('static', filename='kce-logo.png') }}" alt="KCE">
+          <h2>KCE Chatbot</h2>
+          <p>Your virtual assistant for Kings College of Engineering.</p>
+          <div class="status"><span></span> Online</div>
+        </div>
+
+        <div class="side-menu">
+          <button data-question="What courses are offered at KCE?">🎓 Courses</button>
+          <button data-question="What departments are available?">🏛️ Departments</button>
+          <button data-question="How can I get admission?">📝 Admissions</button>
+          <button data-question="Tell me about placements">💼 Placements</button>
+          <button data-question="What are the contact details?">📞 Contact</button>
+        </div>
+      </aside>
+
+      <section class="chat-panel" id="chat">
+        <div class="chat-head">
+          <div class="bot-avatar"></div>
+          <div>
+            <h2>KCE Virtual Assistant</h2>
+            <p>Ask me anything about KCE</p>
+          </div>
+          <div class="spark">✦</div>
+        </div>
+
+        <div class="messages" id="messages">
+          <div class="message bot">
+            <div class="mini-avatar">K</div>
+            <div class="bubble">
+              <div class="message-title">Hello! 👋</div>
+              I’m the <b>KCE Chatbot</b>. I can help you with college information such as
+              courses, admissions, departments, placements and contact details.
+              <br><br><b>What would you like to know?</b>
+              <div class="time">Now</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-row" id="quick">
+          <button data-question="What courses are offered at KCE?">🎓 Courses</button>
+          <button data-question="How can I get admission?">📝 Admissions</button>
+          <button data-question="Tell me about placements">💼 Placements</button>
+          <button data-question="What are the contact details?">📞 Contact</button>
+        </div>
+
+        <form class="composer" id="chatForm">
+          <input id="messageInput" autocomplete="off" placeholder="Type your question about KCE..." />
+          <button type="submit" aria-label="Send">➤</button>
+        </form>
+      </section>
+
+      <aside class="info-panel">
+        <div class="info-card">
+          <div class="card-heading">
+            <span>⚡</span>
+            <div><h3>Quick Questions</h3><p>Tap for instant answers</p></div>
+          </div>
+          <button class="topic" data-question="What courses are offered at KCE?"><span>📚</span><div><b>Courses & Programmes</b><small>UG • PG • Ph.D.</small></div>›</button>
+          <button class="topic" data-question="How can I get admission?"><span>📝</span><div><b>Admissions</b><small>Application & updates</small></div>›</button>
+          <button class="topic" data-question="Tell me about placements"><span>💼</span><div><b>Placements</b><small>Training & recruitment</small></div>›</button>
+          <button class="topic" data-question="What facilities does KCE have?"><span>🏫</span><div><b>Facilities</b><small>Infrastructure & more</small></div>›</button>
+          <button class="topic" data-question="Tell me about KCE"><span>ℹ️</span><div><b>About KCE</b><small>History & recognition</small></div>›</button>
+        </div>
+
+        <div class="highlight">
+          <span class="bulb">💡</span>
+          <div>
+            <b>Did you know?</b>
+            <p>KCE was founded in 2001 and has autonomous status.</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>Need more help?</h3>
+          <p>📞 +91-6380989024</p>
+          <p>✉️ contact@kingsengg.edu.in</p>
+          <p>📍 Punalkulam, Pudukkottai</p>
+          <a href="https://www.kingsengg.edu.in/" target="_blank">Visit Official Website ↗</a>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <span>KINGS COLLEGE OF ENGINEERING</span>
+      <span>LEARN • GROW • LEAD</span>
+      <span>© KCE</span>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
