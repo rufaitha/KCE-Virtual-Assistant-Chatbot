@@ -1,21 +1,33 @@
-:root{
-  --navy:#062a63; --blue:#0c6ff5; --cyan:#35b9ff; --yellow:#ffd329;
-  --bg:#f4f8ff; --text:#102a50; --muted:#71809a; --white:#fff;
+
+:root {
+    --navy: #071a2f;
+    --blue: #1677ff;
+    --cyan: #00d9ff;
+    --yellow: #ffd43b;
+    --bg: #06111f;
+    --text: #f5f9ff;
+    --muted: #9fb3c8;
+    --white: #ffffff;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
     font-family: "Segoe UI", Arial, sans-serif;
-    color: #102a50;
+    color: var(--text);
 
-    /* Professional KCE background */
     background:
-        radial-gradient(circle at 10% 20%, rgba(53, 185, 255, 0.20) 0, transparent 25%),
-        radial-gradient(circle at 90% 15%, rgba(255, 211, 41, 0.20) 0, transparent 23%),
-        radial-gradient(circle at 80% 85%, rgba(12, 111, 245, 0.15) 0, transparent 28%),
-        linear-gradient(135deg, #eaf4ff 0%, #ffffff 48%, #fff9df 100%);
+        radial-gradient(circle at 10% 15%, rgba(0, 217, 255, 0.15), transparent 25%),
+        radial-gradient(circle at 90% 20%, rgba(22, 119, 255, 0.18), transparent 28%),
+        linear-gradient(135deg, #06111f, #0b1f38 50%, #06111f);
 
     position: relative;
     overflow-x: hidden;
