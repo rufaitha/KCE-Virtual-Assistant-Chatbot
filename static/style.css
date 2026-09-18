@@ -1,18 +1,25 @@
 :root {
-    --navy: #071a35;
-    --navy-2: #0b2850;
-    --blue: #1769e0;
-    --blue-light: #eaf3ff;
-    --cyan: #19b5d8;
+    --maroon: #7a1029;
+    --dark-maroon: #4d0919;
+    --deep-maroon: #620b21;
+    --light-maroon: #f8edf0;
 
-    --bg: #f3f7fc;
     --white: #ffffff;
-    --text: #162b49;
-    --muted: #718198;
+    --off-white: #faf8f8;
 
-    --border: #e1e9f3;
-    --shadow: 0 12px 35px rgba(17, 45, 82, 0.08);
+    --text: #25212a;
+    --muted: #77717a;
+
+    --border: #eadfe2;
+    --soft: #f7f3f4;
+
+    --green: #20b878;
 }
+
+
+/* =========================
+   RESET
+========================= */
 
 * {
     box-sizing: border-box;
@@ -25,21 +32,22 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: "Segoe UI", Inter, Arial, sans-serif;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
     color: var(--text);
 
     background:
         radial-gradient(
-            circle at 10% 10%,
-            rgba(25, 181, 216, 0.08),
-            transparent 24%
+            circle at 10% 20%,
+            rgba(122, 16, 41, 0.06),
+            transparent 25%
         ),
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(23, 105, 224, 0.08),
-            transparent 28%
-        ),
-        var(--bg);
+        linear-gradient(
+            135deg,
+            #fff,
+            #f8f4f5
+        );
 
     overflow-x: hidden;
 }
@@ -49,70 +57,78 @@ button {
     font-family: inherit;
 }
 
-a {
-    font-family: inherit;
-}
+
+/* =========================
+   APP
+========================= */
 
 .app-shell {
     min-height: 100vh;
 }
 
+
 /* =========================
-   TOP NAVIGATION
+   TOP BAR
 ========================= */
 
 .topbar {
-    min-height: 82px;
+    height: 78px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #4b0919,
+            #7a1029,
+            #8e1734
+        );
+
+    color: var(--white);
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 12px 38px;
-
-    background:
-        linear-gradient(
-            110deg,
-            #061a38,
-            #0a3265 55%,
-            #0b4b88
-        );
-
-    color: #ffffff;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 34px;
 
     box-shadow:
-        0 8px 30px rgba(4, 25, 55, 0.20);
+        0 6px 25px rgba(77, 9, 25, 0.22);
+
+    position: relative;
+    z-index: 5;
 }
+
+
+/* =========================
+   BRAND
+========================= */
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 13px;
 }
 
 .brand img {
-    width: 55px;
-    height: 55px;
+    width: 56px;
+    height: 56px;
 
     object-fit: contain;
 
-    background: #ffffff;
+    background: white;
 
-    border-radius: 12px;
+    border-radius: 50%;
 
-    padding: 4px;
+    padding: 3px;
 
     box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.16);
+        0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .brand h1 {
+    font-size: 18px;
     margin: 0;
 
-    font-size: 17px;
-    font-weight: 700;
+    font-weight: 800;
 
     letter-spacing: 0.2px;
 }
@@ -120,137 +136,182 @@ a {
 .brand span {
     display: block;
 
-    margin-top: 4px;
-
     font-size: 11px;
 
-    color: #c9dcf7;
+    color: #f4dce2;
 
-    letter-spacing: 0.2px;
+    margin-top: 3px;
 }
+
+
+/* =========================
+   NAVIGATION
+========================= */
 
 nav {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
 }
 
 nav a {
-    color: #eaf3ff;
+    color: #fff;
 
     text-decoration: none;
 
-    padding: 10px 14px;
+    padding: 11px 15px;
 
-    border-radius: 9px;
+    border-radius: 22px;
 
-    font-size: 12px;
+    font-size: 13px;
 
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
+    transition: 0.25s;
 }
 
 nav a:hover,
 nav a.active {
-    background: rgba(255, 255, 255, 0.12);
-
-    transform: translateY(-1px);
+    background: #ffffff;
+    color: var(--maroon);
 }
+
 
 /* =========================
    MAIN LAYOUT
 ========================= */
 
 .layout {
-    max-width: 1480px;
+    max-width: 1500px;
 
-    margin: 24px auto;
+    margin: 20px auto;
 
-    padding: 0 20px;
+    padding: 0 18px;
 
     display: grid;
 
     grid-template-columns:
-        235px
+        230px
         minmax(420px, 1fr)
         310px;
 
-    gap: 18px;
+    gap: 16px;
 }
+
+
+/* =========================
+   COMMON CARDS
+========================= */
+
+.sidebar,
+.chat-panel,
+.info-card,
+.highlight,
+.contact-card {
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 12px 35px rgba(83, 20, 35, 0.08);
+}
+
 
 /* =========================
    SIDEBAR
 ========================= */
 
 .sidebar {
-    background: var(--white);
+    border-radius: 20px;
 
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
-
-    padding: 18px;
+    overflow: hidden;
 
     height: max-content;
 
     position: sticky;
-    top: 18px;
+    top: 15px;
 
-    box-shadow: var(--shadow);
+    background:
+        linear-gradient(
+            180deg,
+            #650b22,
+            #7a1029,
+            #58091b
+        );
+
+    border: none;
+
+    color: white;
+
+    box-shadow:
+        0 15px 35px rgba(77, 9, 25, 0.20);
 }
+
+
+/* =========================
+   PROFILE
+========================= */
 
 .profile {
     text-align: center;
 
-    padding-bottom: 18px;
+    padding: 20px 15px 18px;
 
-    border-bottom: 1px solid var(--border);
+    border-bottom:
+        1px solid rgba(255,255,255,0.20);
 }
 
 .profile img {
-    width: 82px;
-    height: 82px;
+    width: 92px;
+    height: 92px;
 
     object-fit: contain;
 
-    margin-bottom: 7px;
+    background: white;
+
+    border-radius: 50%;
+
+    padding: 4px;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.18);
 }
 
 .profile h2 {
-    margin: 4px 0;
+    font-size: 18px;
 
-    font-size: 17px;
+    margin: 9px 0 5px;
 
-    color: var(--navy);
-
-    font-weight: 700;
+    color: white;
 }
 
 .profile p {
-    margin: 5px 0 0;
-
-    font-size: 11px;
+    font-size: 12px;
 
     line-height: 1.5;
 
-    color: var(--muted);
+    color: #f1dfe4;
+
+    margin: 0;
 }
 
+
+/* =========================
+   ONLINE STATUS
+========================= */
+
 .status {
+    margin: 13px auto 3px;
+
     width: max-content;
 
-    margin: 12px auto 0;
-
-    padding: 6px 11px;
+    padding: 6px 12px;
 
     border-radius: 20px;
 
-    background: #ecfaf3;
+    border: 1px solid rgba(255,255,255,0.30);
 
-    color: #17834f;
+    color: white;
 
-    font-size: 10px;
+    font-size: 11px;
 
     font-weight: 700;
 }
@@ -261,67 +322,60 @@ nav a.active {
     width: 7px;
     height: 7px;
 
-    margin-right: 5px;
-
-    background: #1bb76a;
+    background: var(--green);
 
     border-radius: 50%;
+
+    margin-right: 6px;
+
+    box-shadow:
+        0 0 8px rgba(32,184,120,0.7);
 }
 
-/* Sidebar menu */
+
+/* =========================
+   SIDE MENU
+========================= */
 
 .side-menu {
     display: grid;
 
-    gap: 7px;
+    gap: 3px;
 
-    margin-top: 16px;
+    padding: 12px;
 }
 
 .side-menu button {
-    width: 100%;
+    border: 0;
 
-    border: 1px solid transparent;
+    background: transparent;
 
-    background: #f7faff;
-
-    color: #28496f;
+    color: #fff;
 
     text-align: left;
 
     padding: 11px 12px;
 
-    border-radius: 10px;
+    border-radius: 9px;
 
-    font-size: 11px;
+    font-size: 12px;
 
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease,
-        border 0.2s ease;
+    transition: 0.25s;
 }
 
 .side-menu button:hover {
-    background: var(--blue-light);
+    background: rgba(255,255,255,0.13);
 
-    color: var(--blue);
-
-    border-color: #cfe2fa;
-
-    transform: translateX(3px);
+    padding-left: 16px;
 }
+
 
 /* =========================
    CHAT PANEL
 ========================= */
 
 .chat-panel {
-    background: var(--white);
-
-    border: 1px solid var(--border);
-
-    border-radius: 18px;
+    border-radius: 20px;
 
     min-height: 690px;
 
@@ -330,57 +384,63 @@ nav a.active {
     flex-direction: column;
 
     overflow: hidden;
-
-    box-shadow: var(--shadow);
 }
 
-/* Chat header */
+
+/* =========================
+   CHAT HEADER
+========================= */
 
 .chat-head {
-    min-height: 76px;
+    height: 78px;
+
+    border-bottom:
+        1px solid var(--border);
 
     display: flex;
 
     align-items: center;
 
+    padding: 12px 18px;
+
     gap: 12px;
-
-    padding: 12px 19px;
-
-    border-bottom: 1px solid var(--border);
-
-    background: #ffffff;
 }
 
 .bot-avatar {
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
 
-    border-radius: 13px;
+    border-radius: 50%;
 
     background:
         linear-gradient(
             135deg,
-            #1769e0,
-            #18b7d9
+            #6b0c23,
+            #9b2342
         );
 
     display: grid;
 
     place-items: center;
 
-    position: relative;
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 800;
 
     box-shadow:
-        0 7px 18px rgba(23, 105, 224, 0.22);
+        0 7px 16px rgba(122,16,41,0.25);
+
+    position: relative;
 }
 
 .bot-avatar::after {
     content: "K";
 
-    color: #ffffff;
+    position: absolute;
 
-    font-size: 18px;
+    color: white;
 
     font-weight: 800;
 }
@@ -388,49 +448,64 @@ nav a.active {
 .chat-head h2 {
     margin: 0;
 
-    color: var(--navy);
-
     font-size: 16px;
 
-    font-weight: 700;
+    color: var(--dark-maroon);
 }
 
 .chat-head p {
-    margin: 4px 0 0;
+    margin: 3px 0 0;
 
     color: var(--muted);
 
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .spark {
     margin-left: auto;
 
-    color: var(--blue);
+    color: var(--maroon);
 
-    font-size: 21px;
-
-    opacity: 0.8;
+    font-size: 24px;
 }
+
 
 /* =========================
    MESSAGES
 ========================= */
 
 .messages {
-    flex: 1;
-
     padding: 22px;
+
+    flex: 1;
 
     overflow-y: auto;
 
     background:
         linear-gradient(
             180deg,
-            #ffffff 0%,
-            #f8fbff 100%
+            #ffffff,
+            #fcfafa
         );
 }
+
+
+/* Scrollbar */
+
+.messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: #d8b9c1;
+
+    border-radius: 10px;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
 
 .message {
     display: flex;
@@ -448,17 +523,22 @@ nav a.active {
     flex-direction: row-reverse;
 }
 
+
+/* =========================
+   MINI AVATAR
+========================= */
+
 .mini-avatar {
     width: 30px;
     height: 30px;
 
     flex: 0 0 30px;
 
-    border-radius: 9px;
+    border-radius: 50%;
 
-    background: #eaf3ff;
+    background: var(--light-maroon);
 
-    color: var(--blue);
+    color: var(--maroon);
 
     display: grid;
 
@@ -470,46 +550,57 @@ nav a.active {
 }
 
 .message.user .mini-avatar {
-    background: #dcecff;
+    background: var(--maroon);
 
-    color: #145dbb;
+    color: white;
 }
 
+
+/* =========================
+   CHAT BUBBLE
+========================= */
+
 .bubble {
-    background: #eef5fc;
+    background: #f7f1f3;
 
-    border: 1px solid #e1ebf7;
-
-    border-radius: 5px 17px 17px 17px;
+    border-radius:
+        5px
+        17px
+        17px
+        17px;
 
     padding: 13px 15px;
 
-    font-size: 12px;
+    font-size: 13px;
 
-    line-height: 1.6;
+    line-height: 1.55;
 
-    color: #234466;
+    color: #3d3035;
 
-    box-shadow:
-        0 3px 10px rgba(20, 58, 95, 0.03);
+    border:
+        1px solid #eee1e4;
 }
 
 .message.user .bubble {
     background:
         linear-gradient(
             135deg,
-            #1769e0,
-            #168bd8
+            #70102a,
+            #921a3b
         );
 
-    color: #ffffff;
+    color: white;
 
     border: none;
 
-    border-radius: 17px 5px 17px 17px;
+    border-radius:
+        17px
+        5px
+        17px
+        17px;
 
     box-shadow:
-        0 5px 14px rgba(23, 105, 224, 0.18);
+        0 5px 15px rgba(122,16,41,0.16);
 }
 
 .message-title {
@@ -517,11 +608,11 @@ nav a.active {
 
     margin-bottom: 4px;
 
-    color: var(--navy);
+    color: var(--dark-maroon);
 }
 
 .message.user .message-title {
-    color: #ffffff;
+    color: white;
 }
 
 .bubble ul {
@@ -531,17 +622,17 @@ nav a.active {
 }
 
 .bubble li {
-    margin-bottom: 4px;
+    margin: 3px 0;
 }
 
 .bubble a {
-    color: var(--blue);
+    color: var(--maroon);
 
     font-weight: 700;
 }
 
 .message.user .bubble a {
-    color: #ffffff;
+    color: white;
 }
 
 .time {
@@ -551,6 +642,7 @@ nav a.active {
 
     margin-top: 7px;
 }
+
 
 /* =========================
    QUICK QUESTIONS
@@ -567,34 +659,36 @@ nav a.active {
 }
 
 .quick-row button {
-    border: 1px solid #cfe0f3;
+    border: 1px solid #d8b6bf;
 
-    background: #ffffff;
+    background: white;
 
-    color: #1769c9;
+    color: var(--maroon);
 
-    border-radius: 20px;
+    border-radius: 22px;
 
-    padding: 8px 13px;
+    padding: 8px 14px;
 
-    font-size: 10px;
+    font-size: 11px;
 
-    transition:
-        background 0.2s ease,
-        border 0.2s ease,
-        transform 0.2s ease;
+    font-weight: 600;
+
+    transition: 0.25s;
 }
 
 .quick-row button:hover {
-    background: #edf6ff;
+    background: var(--maroon);
 
-    border-color: #9fc8f2;
+    color: white;
+
+    border-color: var(--maroon);
 
     transform: translateY(-1px);
 }
 
+
 /* =========================
-   MESSAGE INPUT
+   COMPOSER
 ========================= */
 
 .composer {
@@ -604,15 +698,17 @@ nav a.active {
 
     padding: 14px;
 
-    border-top: 1px solid var(--border);
+    border-top:
+        1px solid var(--border);
 
-    background: #ffffff;
+    background: white;
 }
 
 .composer input {
     flex: 1;
 
-    border: 1px solid #d5e1ef;
+    border:
+        1px solid #dfd2d6;
 
     border-radius: 25px;
 
@@ -620,64 +716,52 @@ nav a.active {
 
     outline: none;
 
-    background: #fbfdff;
+    background: #fffafa;
 
-    color: var(--text);
+    font-family: inherit;
 
-    font-size: 12px;
-
-    transition:
-        border 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.composer input::placeholder {
-    color: #94a5b8;
+    font-size: 13px;
 }
 
 .composer input:focus {
-    border-color: #5c9eea;
+    border-color: var(--maroon);
 
     box-shadow:
-        0 0 0 3px rgba(23, 105, 224, 0.08);
+        0 0 0 3px rgba(122,16,41,0.08);
 }
 
 .composer button {
     width: 45px;
     height: 45px;
 
-    border: none;
+    border: 0;
 
     border-radius: 50%;
 
     background:
         linear-gradient(
             135deg,
-            #1769e0,
-            #17a3d6
+            #650b22,
+            #9b2342
         );
 
-    color: #ffffff;
+    color: white;
 
-    font-size: 18px;
+    font-size: 20px;
 
     box-shadow:
-        0 6px 15px rgba(23, 105, 224, 0.22);
+        0 7px 16px rgba(122,16,41,0.25);
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: 0.25s;
 }
 
 .composer button:hover {
     transform: scale(1.05);
-
-    box-shadow:
-        0 8px 20px rgba(23, 105, 224, 0.28);
 }
 
+
 /* =========================
-   RIGHT INFO PANEL
+   RIGHT PANEL
 ========================= */
 
 .info-panel {
@@ -688,35 +772,33 @@ nav a.active {
     gap: 13px;
 }
 
-.info-card,
-.highlight,
-.contact-card {
-    border: 1px solid var(--border);
 
-    box-shadow: var(--shadow);
-}
-
-/* Quick questions card */
+/* =========================
+   INFO CARD
+========================= */
 
 .info-card {
-    background: var(--white);
-
-    border-radius: 17px;
+    border-radius: 18px;
 
     padding: 12px;
 }
 
+
+/* =========================
+   CARD HEADING
+========================= */
+
 .card-heading {
     background:
         linear-gradient(
-            110deg,
-            #082653,
-            #0b4f91
+            100deg,
+            #650b22,
+            #8c1734
         );
 
-    color: #ffffff;
+    color: white;
 
-    border-radius: 12px;
+    border-radius: 13px;
 
     padding: 13px;
 
@@ -730,26 +812,42 @@ nav a.active {
 }
 
 .card-heading span {
-    font-size: 20px;
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: var(--maroon);
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 10px;
+
+    font-weight: 800;
 }
 
 .card-heading h3 {
-    font-size: 13px;
+    font-size: 14px;
 
     margin: 0;
-
-    font-weight: 700;
 }
 
 .card-heading p {
-    font-size: 9px;
+    font-size: 10px;
 
     margin: 3px 0 0;
 
-    color: #d6e8fb;
+    color: #f1dce2;
 }
 
-/* Topic buttons */
+
+/* =========================
+   TOPIC BUTTON
+========================= */
 
 .topic {
     width: 100%;
@@ -762,7 +860,7 @@ nav a.active {
 
     border: 1px solid transparent;
 
-    background: #f8fbff;
+    background: white;
 
     border-radius: 11px;
 
@@ -770,20 +868,17 @@ nav a.active {
 
     margin: 5px 0;
 
-    color: #173e70;
+    color: #352d31;
 
     text-align: left;
 
-    transition:
-        background 0.2s ease,
-        border 0.2s ease,
-        transform 0.2s ease;
+    transition: 0.25s;
 }
 
 .topic:hover {
-    background: #eef6ff;
+    background: #fbf2f5;
 
-    border-color: #d4e6fa;
+    border-color: #ead1d7;
 
     transform: translateX(2px);
 }
@@ -792,17 +887,19 @@ nav a.active {
     width: 31px;
     height: 31px;
 
-    flex: 0 0 31px;
+    border-radius: 50%;
 
-    border-radius: 9px;
+    background: var(--maroon);
 
-    background: #e8f3ff;
+    color: white;
 
     display: grid;
 
     place-items: center;
 
-    font-size: 14px;
+    font-size: 9px;
+
+    font-weight: 700;
 }
 
 .topic div {
@@ -812,95 +909,113 @@ nav a.active {
 .topic b {
     display: block;
 
-    font-size: 10px;
-
-    color: #24476e;
+    font-size: 11px;
 }
 
 .topic small {
     display: block;
 
-    color: #8797aa;
+    color: #94878d;
 
-    font-size: 8px;
+    font-size: 9px;
 
-    margin-top: 3px;
+    margin-top: 2px;
 }
+
+.topic strong {
+    color: var(--maroon);
+
+    font-size: 18px;
+}
+
 
 /* =========================
    HIGHLIGHT
 ========================= */
 
 .highlight {
-    border-radius: 15px;
+    border-radius: 16px;
 
     background:
         linear-gradient(
             135deg,
-            #fffdf2,
-            #fff8d8
+            #fff7f8,
+            #f7e9ed
         );
 
-    padding: 14px;
+    padding: 15px;
 
     display: flex;
 
     gap: 10px;
 
-    border-color: #f2dfa0;
+    border-color: #ecd5da;
 }
 
 .highlight .bulb {
-    font-size: 21px;
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    background: var(--maroon);
+
+    color: white;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    flex-shrink: 0;
 }
 
 .highlight b {
-    font-size: 11px;
+    font-size: 12px;
 
-    color: #604d13;
+    color: var(--dark-maroon);
 }
 
 .highlight p {
-    font-size: 9px;
+    font-size: 10px;
 
-    line-height: 1.5;
+    line-height: 1.45;
 
-    color: #786522;
+    color: #715b62;
 
     margin: 5px 0 0;
 }
+
 
 /* =========================
    CONTACT CARD
 ========================= */
 
 .contact-card {
-    border-radius: 15px;
+    border-radius: 16px;
 
     padding: 15px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #edf6ff,
-            #f5faff
-        );
+    background: white;
 }
 
 .contact-card h3 {
     margin: 0 0 10px;
 
-    font-size: 12px;
+    font-size: 13px;
 
-    color: var(--navy);
+    color: var(--dark-maroon);
 }
 
 .contact-card p {
-    font-size: 9px;
+    font-size: 10px;
 
-    margin: 7px 0;
+    margin: 8px 0;
 
-    color: #536b87;
+    color: #5f5459;
 }
 
 .contact-card a {
@@ -911,33 +1026,32 @@ nav a.active {
     background:
         linear-gradient(
             135deg,
-            #1769e0,
-            #168ed8
+            #650b22,
+            #921a3b
         );
 
-    color: #ffffff;
+    color: white;
 
     text-decoration: none;
 
     border-radius: 9px;
 
-    padding: 9px;
+    padding: 10px;
 
-    font-size: 10px;
+    font-size: 11px;
 
-    margin-top: 11px;
+    margin-top: 12px;
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: 0.25s;
 }
 
 .contact-card a:hover {
     transform: translateY(-1px);
 
     box-shadow:
-        0 5px 14px rgba(23, 105, 224, 0.2);
+        0 6px 15px rgba(122,16,41,0.20);
 }
+
 
 /* =========================
    FOOTER
@@ -946,9 +1060,14 @@ nav a.active {
 footer {
     min-height: 58px;
 
-    background: #061a35;
+    background:
+        linear-gradient(
+            100deg,
+            #4b0919,
+            #7a1029
+        );
 
-    color: #cbdcf2;
+    color: #f4dce2;
 
     display: flex;
 
@@ -956,48 +1075,25 @@ footer {
 
     justify-content: space-between;
 
-    padding: 0 38px;
+    padding: 0 34px;
 
-    font-size: 9px;
+    font-size: 10px;
 
-    letter-spacing: 0.6px;
+    letter-spacing: 0.7px;
 
     margin-top: 18px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
+
 
 /* =========================
-   SCROLLBAR
+   RESPONSIVE
 ========================= */
 
-.messages::-webkit-scrollbar {
-    width: 6px;
-}
-
-.messages::-webkit-scrollbar-track {
-    background: #f5f8fc;
-}
-
-.messages::-webkit-scrollbar-thumb {
-    background: #c5d5e8;
-
-    border-radius: 10px;
-}
-
-.messages::-webkit-scrollbar-thumb:hover {
-    background: #9fb6d0;
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1100px) {
+@media (max-width: 1050px) {
 
     .layout {
         grid-template-columns:
-            200px
+            190px
             minmax(0, 1fr);
     }
 
@@ -1019,21 +1115,13 @@ footer {
     }
 }
 
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 720px) {
 
     .topbar {
-        min-height: 70px;
+        height: auto;
 
-        padding: 10px 15px;
-    }
-
-    .brand img {
-        width: 45px;
-        height: 45px;
+        padding: 12px 15px;
     }
 
     .brand h1 {
@@ -1041,7 +1129,12 @@ footer {
     }
 
     .brand span {
-        font-size: 8px;
+        font-size: 9px;
+    }
+
+    .brand img {
+        width: 46px;
+        height: 46px;
     }
 
     nav {
@@ -1062,8 +1155,10 @@ footer {
 
     .chat-panel {
         min-height: 620px;
+    }
 
-        border-radius: 15px;
+    .info-panel {
+        grid-template-columns: 1fr;
     }
 
     .messages {
@@ -1074,60 +1169,9 @@ footer {
         max-width: 96%;
     }
 
-    .quick-row {
-        padding: 0 12px 12px;
-    }
-
-    .quick-row button {
-        font-size: 9px;
-
-        padding: 7px 10px;
-    }
-
-    .info-panel {
-        grid-template-columns: 1fr;
-    }
-
     footer {
         padding: 0 15px;
 
-        font-size: 7px;
-    }
-}
-
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media (max-width: 420px) {
-
-    .brand h1 {
-        font-size: 11px;
-    }
-
-    .brand span {
-        font-size: 7px;
-    }
-
-    .chat-head {
-        padding: 10px 13px;
-    }
-
-    .messages {
-        padding: 12px;
-    }
-
-    .bubble {
-        font-size: 11px;
-
-        padding: 11px 12px;
-    }
-
-    .composer {
-        padding: 10px;
-    }
-
-    .composer input {
-        font-size: 11px;
+        font-size: 8px;
     }
 }
